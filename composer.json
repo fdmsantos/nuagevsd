@@ -1,0 +1,26 @@
+{
+	"name": "fdmsantos/nuagevsd",
+    "description": "PHP SDK for Nuage Networks VSD API",
+    "keywords": [
+        "php",
+        "nuage",
+        "vsd",
+        "api",
+        "sdk"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Fabio Santos",
+            "email": "fabiodanielmonteirosantos@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vsd\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
