@@ -28,8 +28,9 @@ abstract class AbstractModel
 
     public function create(array $options): self
     {
-        $this->populateFromArray($options);
-        return $this->populateFromArray($this->execute($this->api->create(),get_object_vars($this))[0]);
+        // $this->populateFromArray($options);
+        // return $this->populateFromArray($this->execute($this->api->create(),get_object_vars($this))[0]);
+        return $this->populateFromArray($this->execute($this->api->create(), $options)[0]);
     }
 
     public function update(): self
@@ -38,8 +39,11 @@ abstract class AbstractModel
         return $this;
     }
 
-    public function delete(string $id): self
+    public function delete(string $id = null): self
     {
+        if (!isSet($id)) {
+            $id = $this->id;
+        }
         $this->execute($this->api->delete(),['id' => $id]);
         return $this;
     }
