@@ -16,12 +16,17 @@ abstract class AbstractModel
 		$this->client = $client;
 	}
 
-	public function retrieve()
+    public function list(array $options = null): \Vsd\Common\Resources\VsdIterator
     {
-        return $this->populateFromArray($this->execute($this->api->get(), ['id' => $this->id])[0]);
+        return $this->enumerate($options);
     }
 
-    public function create($options): self
+	public function get(string $id): self
+    {
+        return $this->populateFromArray($this->execute($this->api->get(), ['id' => $id])[0]);
+    }
+
+    public function create(array $options): self
     {
         $this->populateFromArray($options);
         return $this->populateFromArray($this->execute($this->api->create(),get_object_vars($this))[0]);
@@ -33,9 +38,9 @@ abstract class AbstractModel
         return $this;
     }
 
-    public function delete(): self
+    public function delete(string $id): self
     {
-        $this->execute($this->api->delete(),['id' => $this->id]);
+        $this->execute($this->api->delete(),['id' => $id]);
         return $this;
     }
 
