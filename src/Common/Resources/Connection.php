@@ -61,24 +61,23 @@ Class Connection
 
 		if (isset($options['params'])) {
             foreach ($options['params'] as $param => $values) {
-                if (gettype($params[$param] == $values['type'])) {
-                    if ($values['location'] == Params::URL) { // Path Params
-                        $request['path'] = str_replace('{'.$param.'}',$params[$param],$request['path']);
-                    }
-                    else if ($values['location'] == Params::JSON) { // Body Params To send in JSON Format
-                        $request['Options']['body'][$param] = $params[$param];
-                    }
-                }
-                else {
-                	throw new Exception("Types No valid", 1); // Verify This	
-                }
+            	if (isSet($params[$param])) {
+            		if (gettype($params[$param] == $values['type'])) {
+	                    if ($values['location'] == Params::URL) { // Path Params
+	                        $request['path'] = str_replace('{'.$param.'}',$params[$param],$request['path']);
+	                    }
+	                    else if ($values['location'] == Params::JSON) { // Body Params To send in JSON Format
+	                        $request['Options']['body'][$param] = $params[$param];
+	                    }
+	                    else if ($values['location'] == Params::FILTER) { // Filters
+	                        $request['Options']['headers']['X-Nuage-Filter'] = $params[$param];
+	                    }
+	                }
+	                else {
+	                	throw new Exception("Types No valid", 1); // Verify This	
+	                }
+            	}
             }
-        }
-
-        if (isset($params['filter'])) {
-        	foreach ($params['filter'] as $param => $filter) {
-        		$request['Options']['headers']['X-Nuage-Filter'] = $filter;
-        	}
         }
 
         if (isSet($request['Options']['body'])) {

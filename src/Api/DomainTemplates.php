@@ -4,16 +4,17 @@ namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
 
-class Enterprises extends AbstractApi
+class DomainTemplates extends AbstractApi
 {
 	
 	public function all(): array
     {
         return [
             'method'  => 'GET',
-            'path'    => 'enterprises',
+            'path'    => 'enterprises/{parentID}/domaintemplates',
             'params'  => [
-                'name'  => $this->params->stringFilter(),
+                'parentID' => $this->params->stringPath(),
+                'name'     => $this->params->stringFilter()
             ]
         ];
     }
@@ -22,7 +23,7 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'GET',
-            'path'    => 'enterprises/{ID}',
+            'path'    => 'domaintemplates/{ID}',
             'params'  => [
             	'ID' => $this->params->stringPath()
             ]
@@ -33,10 +34,10 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'POST',
-            'path'    => 'enterprises',
+            'path'    => 'enterprises/{parentID}/domaintemplates',
             'params'  => [
-                'name'        => $this->params->stringJson(),
-                'description' => $this->params->stringJson()
+                'parentID' => $this->params->stringPath(),
+                'name'     => $this->params->stringJson()
             ]
         ];
     }
@@ -45,7 +46,7 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'DELETE',
-            'path'    => 'enterprises/{ID}',
+            'path'    => 'domaintemplates/{ID}',
             'params'  => [
                 'ID' => $this->params->stringPath(),
             ],
@@ -57,7 +58,7 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'PUT',
-            'path'    => 'enterprises/{ID}',
+            'path'    => 'domaintemplates/{ID}',
             'params'  => [
                 'ID'   => $this->params->stringPath(),
                 'name' => $this->params->stringJson(),

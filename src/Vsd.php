@@ -3,7 +3,7 @@
 namespace Vsd;
 use Vsd\Common\Resources\Connection;
 use Vsd\Services\Enterprises;
-use Vsd\Services\Users;
+use Vsd\Services\DomainTemplates;
 
 class Vsd
 {
@@ -19,9 +19,9 @@ class Vsd
         return new Enterprises($this->client);
     }
 
-    public function users(): Users
+    public function domainTemplates(): DomainTemplates
     {
-        return new Users($this->client);
+        return new DomainTemplates($this->client);
     }
 
 }

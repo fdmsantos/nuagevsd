@@ -3,31 +3,32 @@
 namespace Vsd\Models;
 
 use Vsd\Common\AbstractClasses\AbstractModel;
-use Vsd\Models\DomainTemplate;
-use Vsd\Api\Enterprises;
+use Vsd\Api\DomainTemplates;
 
-class Enterprise extends AbstractModel
+class DomainTemplate extends AbstractModel
 {
 	public $id;
 	public $name;
 	public $description;
-	public $customerId;
-	public $owner;
+	public $parentId;
 
 	protected $aliases = [
 		'ID'         => 'id',
-		'customerID' => 'customerId'
+		'parentID'   => 'parentId'
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
 	{
 		parent::__construct($client);
-		$this->api = new Enterprises();
+		$this->api = new DomainTemplates();
 	}
 
-	public function domainTemplates() 
+	public function list(array $options = [])
 	{
-		return $this->model(DomainTemplate::class, ['parentId' => $this->id]);
+		return $this->enumerate(array_merge([
+			'parentID' => $this->parentId
+		], $options));
 	}
+
 
 }

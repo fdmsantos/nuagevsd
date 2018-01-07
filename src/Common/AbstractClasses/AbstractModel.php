@@ -3,16 +3,17 @@
 namespace Vsd\Common\AbstractClasses;
 use Vsd\Common\Resources\VsdIterator;
 use Vsd\Common\Resources\Params;
+use Vsd\Common\Traits\OperatorTrait;
 
 abstract class AbstractModel
 {
+    use OperatorTrait;
 	protected $client;
 	protected $api;
 
-	public function __construct(\Vsd\Common\Resources\Connection $client, \Vsd\Common\AbstractClasses\AbstractApi $api) 
+	public function __construct(\Vsd\Common\Resources\Connection $client) 
 	{
 		$this->client = $client;
-		$this->api = $api;
 	}
 
 	public function retrieve()
@@ -20,8 +21,9 @@ abstract class AbstractModel
         return $this->populateFromArray($this->execute($this->api->get(), ['id' => $this->id])[0]);
     }
 
-    public function create(): self
+    public function create($options): self
     {
+        $this->populateFromArray($options);
         return $this->populateFromArray($this->execute($this->api->create(),get_object_vars($this))[0]);
     }
 
@@ -33,15 +35,15 @@ abstract class AbstractModel
 
     public function delete(): self
     {
-        $this->client->execute($this->api->delete(),['id' => $this->id]);
+        $this->execute($this->api->delete(),['id' => $this->id]);
         return $this;
     }
 
-    public function enumerate(array $options, array $filter = null): VsdIterator
+    public function enumerate(array $options = null): VsdIterator
     {
         return new VsdIterator(
             $this,
-            $this->execute($options, $filter)
+            $this->execute($this->api->all(), $options)
         );
     }
 
@@ -70,4 +72,6 @@ abstract class AbstractModel
         }
         return $this->client->sendRequest($options, $params);
     }
+
+    
 }
