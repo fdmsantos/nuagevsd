@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+export VSD_AUTH_URL=''     
+export VSD_USERNAME=''
+export VSD_PASSWORD=''
+export VSD_ORGANIZATION=''
+export VSD_VERIFY=''
