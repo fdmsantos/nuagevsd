@@ -3,6 +3,7 @@
 namespace Vsd;
 use Vsd\Common\Resources\Connection;
 use Vsd\Services\Enterprises;
+use Vsd\Services\Users;
 
 class Vsd
 {
@@ -16,6 +17,11 @@ class Vsd
     public function enterprises(): Enterprises
     {
         return new Enterprises($this->client);
+    }
+
+    public function users(): Users
+    {
+        return new Users($this->client);
     }
 
 }

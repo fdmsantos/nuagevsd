@@ -19,9 +19,9 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'GET',
-            'path'    => 'enterprises/{id}',
+            'path'    => 'enterprises/{ID}',
             'params'  => [
-            	'id' => $this->params->idPath()
+            	'ID' => $this->params->stringPath()
             ]
         ];
     }
@@ -32,8 +32,8 @@ class Enterprises extends AbstractApi
             'method'  => 'POST',
             'path'    => 'enterprises',
             'params'  => [
-                'name'        => $this->params->name(),
-                'description' => $this->params->description()
+                'name'        => $this->params->stringJson(),
+                'description' => $this->params->stringJson()
             ]
         ];
     }
@@ -42,9 +42,9 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'DELETE',
-            'path'    => 'enterprises/{id}',
+            'path'    => 'enterprises/{ID}',
             'params'  => [
-                'id' => $this->params->idPath(),
+                'ID' => $this->params->stringPath(),
             ],
             'responseChoice' => 1
         ];
@@ -54,11 +54,11 @@ class Enterprises extends AbstractApi
     {
         return [
             'method'  => 'PUT',
-            'path'    => 'enterprises/{id}',
+            'path'    => 'enterprises/{ID}',
             'params'  => [
-                'id'   => $this->params->idPath(),
-                'name' => $this->params->name(),
-                'description' => $this->params->description(),
+                'ID'   => $this->params->stringPath(),
+                'name' => $this->params->stringJson(),
+                'description' => $this->params->stringJson(),
             ],
         ];
     }

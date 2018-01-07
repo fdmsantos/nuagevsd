@@ -8,7 +8,7 @@ class Params
     const STRING_TYPE = "string";
     const JSON = 'json';
 	
-    public function idPath(): array
+    public function stringPath(): array
     {
         return [
             'type'        => self::STRING_TYPE,
@@ -16,22 +16,12 @@ class Params
         ];
     }
 
-    public function name(): array
+    public function stringJson(): array
     {
         return [
             'type'        => self::STRING_TYPE,
             'location'    => self::JSON,
         ];
     }
-
-    public function description(): array
-    {
-        return [
-            'type'        => self::STRING_TYPE,
-            'location'    => self::JSON,
-        ];
-    }
-	
-
 
 }

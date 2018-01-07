@@ -17,23 +17,23 @@ abstract class AbstractModel
 
 	public function retrieve()
     {
-        return $this->populateFromArray($this->client->sendRequest($this->api->get(), ['id' => $this->id])[0]);
+        return $this->populateFromArray($this->execute($this->api->get(), ['id' => $this->id])[0]);
     }
 
     public function create(): self
     {
-        return $this->populateFromArray($this->client->sendRequest($this->api->create(),get_object_vars($this))[0]);
+        return $this->populateFromArray($this->execute($this->api->create(),get_object_vars($this))[0]);
     }
 
     public function update(): self
     {
-        $this->client->sendRequest($this->api->update(),get_object_vars($this));
+        $this->execute($this->api->update(),get_object_vars($this));
         return $this;
     }
 
     public function delete(): self
     {
-        $this->client->sendRequest($this->api->delete(),['id' => $this->id]);
+        $this->client->execute($this->api->delete(),['id' => $this->id]);
         return $this;
     }
 
@@ -41,7 +41,7 @@ abstract class AbstractModel
     {
         return new VsdIterator(
             $this,
-            $this->client->sendRequest($options, $filter)
+            $this->execute($options, $filter)
         );
     }
 
@@ -56,5 +56,18 @@ abstract class AbstractModel
             }
         }
         return $this;
+    }
+
+    private function execute($options, $params = null)
+    {
+        if (isSet($params)) {
+            foreach ($params as $param => $value) {
+                if ($property = array_search ($param, $this->aliases)) {
+                    $params[$property] = $value;
+                    unset($params[$param]);
+                }
+            }
+        }
+        return $this->client->sendRequest($options, $params);
     }
 }
