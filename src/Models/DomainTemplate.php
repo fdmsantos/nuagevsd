@@ -7,28 +7,14 @@ use Vsd\Api\DomainTemplates;
 
 class DomainTemplate extends AbstractModel
 {
-	public $id;
+	public $ID;
 	public $name;
 	public $description;
-	public $parentId;
-
-	protected $aliases = [
-		'ID'         => 'id',
-		'parentID'   => 'parentId'
-	];
+	public $parentID;
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
 	{
-		parent::__construct($client);
-		$this->api = new DomainTemplates();
+		parent::__construct($client, new DomainTemplates());
 	}
-
-	public function list(array $options = [])
-	{
-		return $this->enumerate(array_merge([
-			'parentID' => $this->parentId
-		], $options));
-	}
-
 
 }

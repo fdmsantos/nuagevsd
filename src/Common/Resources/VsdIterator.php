@@ -8,9 +8,9 @@ class VsdIterator implements \Iterator {
     private $class;
     private $options; 
 
-    public function __construct($class,array $options) {
+    public function __construct($class, $options) {
         $this->class = $class;
-        $this->options = $options;
+        $this->options = $options ?: [];
         $this->position = 0;
     }
 

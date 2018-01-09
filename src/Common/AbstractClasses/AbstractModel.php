@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace Vsd\Common\AbstractClasses;
+
 use Vsd\Common\Resources\VsdIterator;
 use Vsd\Common\Resources\Params;
 use Vsd\Common\Traits\OperatorTrait;
@@ -8,60 +9,40 @@ use Vsd\Common\Traits\OperatorTrait;
 abstract class AbstractModel
 {
     use OperatorTrait;
+
 	protected $client;
 	protected $api;
 
-	public function __construct(\Vsd\Common\Resources\Connection $client) 
+	public function __construct(\Vsd\Common\Resources\Connection $client,
+                                \Vsd\Common\AbstractClasses\AbstractApi $api) 
 	{
 		$this->client = $client;
+        $this->api = $api;
 	}
-
-    public function list(array $options = null): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->enumerate($options);
-    }
-
-	public function get(string $id): self
-    {
-        return $this->populateFromArray($this->execute($this->api->get(), ['id' => $id])[0]);
-    }
-
-    public function create(array $options): self
-    {
-        // $this->populateFromArray($options);
-        // return $this->populateFromArray($this->execute($this->api->create(),get_object_vars($this))[0]);
-        return $this->populateFromArray($this->execute($this->api->create(), $options)[0]);
-    }
 
     public function update(): self
     {
-        $this->execute($this->api->update(),get_object_vars($this));
+        $this->execute($this->api->update(), get_object_vars($this));
         return $this;
     }
 
-    public function delete(string $id = null): self
+    public function delete(): self
     {
-        if (!isSet($id)) {
-            $id = $this->id;
-        }
-        $this->execute($this->api->delete(),['id' => $id]);
+        $this->execute($this->api->delete(), ['ID' => $this->ID]);
         return $this;
     }
 
-    public function enumerate(array $options = null): VsdIterator
+    public function enumerate($api, array $options = null): VsdIterator
     {
         return new VsdIterator(
             $this,
-            $this->execute($this->api->all(), $options)
+            $this->execute($api, $options)
         );
     }
 
     public function populateFromArray(array $data): self
     {
         foreach ($data as $key => $val) {
-            if (isSet($this->aliases[$key])) {
-                $key = $this->aliases[$key];
-            }
             if (property_exists($this, $key)) {
                 $this->{$key} = $val;
             }
@@ -69,18 +50,9 @@ abstract class AbstractModel
         return $this;
     }
 
-    private function execute($options, $params = null)
+    protected function builder($builder): \Vsd\Common\AbstractClasses\AbstractBuilder
     {
-        if (isSet($params)) {
-            foreach ($params as $param => $value) {
-                if ($property = array_search ($param, $this->aliases)) {
-                    $params[$property] = $value;
-                    unset($params[$param]);
-                }
-            }
-        }
-        return $this->client->sendRequest($options, $params);
+        return new $builder($this->client);
     }
-
     
 }

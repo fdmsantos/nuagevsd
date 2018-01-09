@@ -3,8 +3,9 @@
 namespace Vsd\Common\AbstractClasses;
 
 use Vsd\Common\Resources\Params;
+use Vsd\Common\Interfaces\ApiInterface;
 
-abstract class AbstractApi
+abstract class AbstractApi implements ApiInterface
 {
     protected $params;
 

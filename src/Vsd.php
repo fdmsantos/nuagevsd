@@ -2,13 +2,13 @@
 
 namespace Vsd;
 use Vsd\Common\Resources\Connection;
-use Vsd\Models\Enterprise;
-use Vsd\Models\DomainTemplate;
-use Vsd\Common\Traits\OperatorTrait;
+use Vsd\Builders\Enterprise;
+use Vsd\Builders\DomainTemplate;
+use Vsd\Builders\Domain;
 
 class Vsd
 {
-    use OperatorTrait;
+
     private $client;
 
     public function __construct(array $options = [])
@@ -24,6 +24,11 @@ class Vsd
     public function domainTemplates(): DomainTemplate
     {
         return new DomainTemplate($this->client);
+    }
+
+    public function domains(): Domain 
+    {
+        return new Domain($this->client);
     }
 
 }
