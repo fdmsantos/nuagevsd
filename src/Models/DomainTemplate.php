@@ -5,10 +5,11 @@ namespace Vsd\Models;
 use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\DomainTemplates;
 use Vsd\Common\Traits\Relations\IngressAclTemplatesTrait;
+use Vsd\Common\Traits\Relations\EgressAclTemplatesTrait;
 
 class DomainTemplate extends AbstractModel
 {
-	use IngressAclTemplatesTrait;
+	use IngressAclTemplatesTrait, EgressAclTemplatesTrait;
 	
 	public $ID;
 	public $name;

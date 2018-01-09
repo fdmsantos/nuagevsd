@@ -6,6 +6,7 @@ use Vsd\Builders\Enterprise;
 use Vsd\Builders\DomainTemplate;
 use Vsd\Builders\Domain;
 use Vsd\Builders\IngressAclTemplates;
+use Vsd\Builders\EgressAclTemplates;
 
 class Vsd
 {
@@ -35,6 +36,11 @@ class Vsd
     public function ingressAclTemplates(): IngressAclTemplates 
     {
         return new IngressAclTemplates($this->client);
+    }
+
+    public function egressAclTemplates(): EgressAclTemplates 
+    {
+        return new EgressAclTemplates($this->client);
     }
 
 }
