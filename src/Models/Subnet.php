@@ -4,9 +4,12 @@ namespace Vsd\Models;
 
 use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\Subnets;
+use Vsd\Common\Traits\Relations\AddressRangeTrait;
 
 class Subnet extends AbstractModel
 {
+	use AddressRangeTrait;
+
 	public $ID;
 	public $name;
 	public $parentID;
@@ -14,6 +17,7 @@ class Subnet extends AbstractModel
 	public $address;
 	public $netmask;
 	public $gateway;
+	public $resourceKey = 'subnets';
 	
 	public function __construct(\Vsd\Common\Resources\Connection $client)
 	{

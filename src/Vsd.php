@@ -9,6 +9,7 @@ use Vsd\Builders\IngressAclTemplates;
 use Vsd\Builders\EgressAclTemplates;
 use Vsd\Builders\Zones;
 use Vsd\Builders\Subnets;
+use Vsd\Builders\AddressRange;
 
 class Vsd
 {
@@ -52,5 +53,10 @@ class Vsd
     public function subnets(): Subnets 
     {
         return new Subnets($this->client);
+    }
+
+    public function addressRanges(): AddressRange 
+    {
+        return new AddressRange($this->client);
     }
 }
