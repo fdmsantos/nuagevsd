@@ -8,6 +8,7 @@ class Params
     const STRING_TYPE = "string";
     const JSON = 'json';
     const FILTER = 'filter';
+    const BOOLEAN_TYPE = 'boolean';
 	
     public function stringPath(): array
     {
@@ -21,6 +22,14 @@ class Params
     {
         return [
             'type'        => self::STRING_TYPE,
+            'location'    => self::JSON,
+        ];
+    }
+
+    public function booleanJson(): array
+    {
+        return [
+            'type'        => self::BOOLEAN_TYPE,
             'location'    => self::JSON,
         ];
     }

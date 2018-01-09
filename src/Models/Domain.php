@@ -4,9 +4,12 @@ namespace Vsd\Models;
 
 use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\Domains;
+use Vsd\Common\Traits\Relations\IngressAclTemplatesTrait;
 
 class Domain extends AbstractModel
 {
+	use IngressAclTemplatesTrait;
+
 	public $ID;
 	public $parentID;
 	public $name;
@@ -14,15 +17,10 @@ class Domain extends AbstractModel
 	public $underlayEnabled;
 	public $PATEnabled;
 	public $encryption;
+	private $resourceKey = 'domains';
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
 	{
 		parent::__construct($client, new Domains());
 	}
-
-	public function domainTemplates() 
-	{
-		return $this->model(DomainTemplate::class, ['parentId' => $this->id]);
-	}
-
 }

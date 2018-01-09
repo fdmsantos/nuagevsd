@@ -5,6 +5,7 @@ use Vsd\Common\Resources\Connection;
 use Vsd\Builders\Enterprise;
 use Vsd\Builders\DomainTemplate;
 use Vsd\Builders\Domain;
+use Vsd\Builders\IngressAclTemplates;
 
 class Vsd
 {
@@ -29,6 +30,11 @@ class Vsd
     public function domains(): Domain 
     {
         return new Domain($this->client);
+    }
+
+    public function ingressAclTemplates(): IngressAclTemplates 
+    {
+        return new IngressAclTemplates($this->client);
     }
 
 }
