@@ -7,10 +7,10 @@ use Vsd\Builders\DomainTemplate;
 use Vsd\Builders\Domain;
 use Vsd\Builders\IngressAclTemplates;
 use Vsd\Builders\EgressAclTemplates;
+use Vsd\Builders\Zones;
 
 class Vsd
 {
-
     private $client;
 
     public function __construct(array $options = [])
@@ -43,4 +43,8 @@ class Vsd
         return new EgressAclTemplates($this->client);
     }
 
+    public function zones(): Zones 
+    {
+        return new Zones($this->client);
+    }
 }
