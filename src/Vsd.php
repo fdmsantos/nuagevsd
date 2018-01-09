@@ -8,6 +8,7 @@ use Vsd\Builders\Domain;
 use Vsd\Builders\IngressAclTemplates;
 use Vsd\Builders\EgressAclTemplates;
 use Vsd\Builders\Zones;
+use Vsd\Builders\Subnets;
 
 class Vsd
 {
@@ -46,5 +47,10 @@ class Vsd
     public function zones(): Zones 
     {
         return new Zones($this->client);
+    }
+
+    public function subnets(): Subnets 
+    {
+        return new Subnets($this->client);
     }
 }

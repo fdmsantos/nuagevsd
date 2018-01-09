@@ -34,7 +34,7 @@ class Enterprise extends AbstractModel
 		], $options));
 	}
 
-	public function domains(array $options = []): \Vsd\Common\Resources\VsdIterator 
+	public function domains(): \Vsd\Common\Resources\VsdIterator 
 	{
 		return $this->builder(Domain::class)->byEnterprises($this->ID);
 	}

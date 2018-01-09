@@ -33,7 +33,7 @@ class Domain extends AbstractModel
 		], $options));
 	}
 
-	public function zones(array $options = []): \Vsd\Common\Resources\VsdIterator 
+	public function zones(): \Vsd\Common\Resources\VsdIterator 
 	{
 		return $this->builder(Zones::class)->byDomains($this->ID);
 	}
