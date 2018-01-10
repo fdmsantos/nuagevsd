@@ -10,6 +10,7 @@ use Vsd\Builders\EgressAclTemplates;
 use Vsd\Builders\Zones;
 use Vsd\Builders\Subnets;
 use Vsd\Builders\AddressRange;
+use Vsd\Builders\DhcpOptions;
 
 class Vsd
 {
@@ -58,5 +59,10 @@ class Vsd
     public function addressRanges(): AddressRange 
     {
         return new AddressRange($this->client);
+    }
+
+    public function dhcpOptions(): DhcpOptions 
+    {
+        return new DhcpOptions($this->client);
     }
 }

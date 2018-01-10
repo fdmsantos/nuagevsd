@@ -5,10 +5,10 @@ namespace Vsd\Models;
 use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\Subnets;
 use Vsd\Builders\AddressRange;
+use Vsd\Builders\DhcpOptions;
 
 class Subnet extends AbstractModel
 {
-
 	public $ID;
 	public $name;
 	public $parentID;
@@ -18,7 +18,8 @@ class Subnet extends AbstractModel
 	public $gateway;
 	protected $resourceKey = 'subnets';
 	protected $relations = [
-		'addressRanges' => AddressRange::class
+		'addressRanges' => AddressRange::class,
+		'dhcpoptions'   => DhcpOptions::class
 	];
 	
 	public function __construct(\Vsd\Common\Resources\Connection $client)
