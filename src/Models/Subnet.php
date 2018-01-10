@@ -6,6 +6,7 @@ use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\Subnets;
 use Vsd\Builders\AddressRange;
 use Vsd\Builders\DhcpOptions;
+use Vsd\Builders\VPorts;
 
 class Subnet extends AbstractModel
 {
@@ -19,7 +20,8 @@ class Subnet extends AbstractModel
 	protected $resourceKey = 'subnets';
 	protected $relations = [
 		'addressRanges' => AddressRange::class,
-		'dhcpoptions'   => DhcpOptions::class
+		'dhcpoptions'   => DhcpOptions::class,
+		'vports'        => Vports::class,
 	];
 	
 	public function __construct(\Vsd\Common\Resources\Connection $client)

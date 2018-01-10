@@ -12,6 +12,10 @@ use Vsd\Builders\Subnets;
 use Vsd\Builders\AddressRange;
 use Vsd\Builders\DhcpOptions;
 use Vsd\Builders\NsGateways;
+use Vsd\Builders\NsPorts;
+use Vsd\Builders\Vlans;
+use Vsd\Builders\VPorts;
+use Vsd\Builders\BridgeInterfaces;
 
 class Vsd
 {
@@ -71,4 +75,25 @@ class Vsd
     {
         return new NsGateways($this->client);
     }
+
+    public function nsports(): NsPorts
+    {
+        return new NsPorts($this->client);
+    }
+
+    public function vlans(): Vlans
+    {
+        return new Vlans($this->client);
+    }
+
+    public function vports(): Vports
+    {
+        return new VPorts($this->client);
+    }
+
+    public function bridgeInterfaces(): BridgeInterfaces
+    {
+        return new BridgeInterfaces($this->client);
+    }
+    
 }

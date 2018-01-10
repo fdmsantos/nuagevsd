@@ -9,6 +9,7 @@ class Params
     const JSON = 'json';
     const FILTER = 'filter';
     const BOOLEAN_TYPE = 'boolean';
+    const INT_TYPE = 'integer';
 	
     public function stringPath(): array
     {
@@ -30,6 +31,14 @@ class Params
     {
         return [
             'type'        => self::BOOLEAN_TYPE,
+            'location'    => self::JSON,
+        ];
+    }
+
+    public function integerJson(): array
+    {
+        return [
+            'type'        => self::INT_TYPE,
             'location'    => self::JSON,
         ];
     }

@@ -49,7 +49,7 @@ abstract class AbstractBuilder
 
     public function listByParent(array $options): \Vsd\Common\Resources\VsdIterator
     {
-        return $this->model($this->model)->enumerate($this->api->listByParent(), $options);
+        return $this->model($this->model)->enumerate($this->api->ByParents(), $options);
     }
 
     protected function model(string $class, array $data = null) 

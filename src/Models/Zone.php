@@ -6,6 +6,7 @@ use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\Zones;
 use Vsd\Builders\Subnets;
 use Vsd\Builders\DhcpOptions;
+use Vsd\Builders\VPorts;
 
 class Zone extends AbstractModel
 {
@@ -16,7 +17,8 @@ class Zone extends AbstractModel
 	protected $resourceKey = 'zones';
 	protected $relations = [
 		'subnets'     => Subnets::class,
-		'dhcpoptions' => DhcpOptions::class
+		'dhcpoptions' => DhcpOptions::class,
+		'vports'      => Vports::class,
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)

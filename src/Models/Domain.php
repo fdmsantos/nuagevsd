@@ -7,10 +7,11 @@ use Vsd\Api\Domains;
 use Vsd\Builders\EgressAclTemplates;
 use Vsd\Builders\IngressAclTemplates;
 use Vsd\Builders\Zones;
+use Vsd\Builders\VPorts;
+use Vsd\Builders\BridgeInterfaces;
 
 class Domain extends AbstractModel
 {
-
 	public $ID;
 	public $parentID;
 	public $name;
@@ -20,9 +21,11 @@ class Domain extends AbstractModel
 	public $encryption;
 	protected $resourceKey = 'domains';
 	protected $relations = [
-		'zones' => Zones::class,
+		'zones'               => Zones::class,
 		'egressAclTemplates'  => EgressAclTemplates::class,
-		'ingressAclTemplates' => IngressAclTemplates::class
+		'ingressAclTemplates' => IngressAclTemplates::class,
+		'vports'              => Vports::class,
+		'bridgeInterfaces'    => BridgeInterfaces::class,
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
