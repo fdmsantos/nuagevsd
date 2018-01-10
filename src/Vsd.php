@@ -11,6 +11,7 @@ use Vsd\Builders\Zones;
 use Vsd\Builders\Subnets;
 use Vsd\Builders\AddressRange;
 use Vsd\Builders\DhcpOptions;
+use Vsd\Builders\NsGateways;
 
 class Vsd
 {
@@ -64,5 +65,10 @@ class Vsd
     public function dhcpOptions(): DhcpOptions 
     {
         return new DhcpOptions($this->client);
+    }
+
+    public function nsgateways(): NsGateways 
+    {
+        return new NsGateways($this->client);
     }
 }

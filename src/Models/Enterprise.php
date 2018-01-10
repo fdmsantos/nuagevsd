@@ -3,9 +3,10 @@
 namespace Vsd\Models;
 
 use Vsd\Common\AbstractClasses\AbstractModel;
+use Vsd\Api\Enterprises;
 use Vsd\Builders\DomainTemplate;
 use Vsd\Builders\Domain;
-use Vsd\Api\Enterprises;
+use Vsd\Builders\NsGateways;
 
 class Enterprise extends AbstractModel
 {
@@ -18,6 +19,7 @@ class Enterprise extends AbstractModel
 	protected $relations = [
 		'domains'          => Domain::class,
 		'domainsTemplates' => DomainTemplate::class,
+		'nsgateways'       => NsGateways::class,
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
