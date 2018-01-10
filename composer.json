@@ -9,6 +9,7 @@
         "sdk"
     ],
     "license": "Apache-2.0",
+    "minimum-stability": "beta",
     "authors": [
         {
             "name": "Fabio Santos",
