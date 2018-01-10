@@ -12,10 +12,4 @@ class AddressRange extends AbstractBuilder
     {
         parent::__construct($client,new AddressRangeApi(), AddressRangeModel::class);
     }
-
-    public function listByParent(array $options): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->model($this->model)->enumerate($this->api->listByParent(), $options);
-    }
-
 }

@@ -3,10 +3,14 @@
 namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
+use Vsd\Common\Traits\ParentRelationTrait;
 
 class Zones extends AbstractApi
 {
-
+    use ParentRelationTrait;
+    
+    private $resourceKey = 'zones';
+    
 	public function all(): array
     {
         return [
@@ -63,16 +67,4 @@ class Zones extends AbstractApi
             ],
         ];
     }
-
-    public function byDomains(): array
-    {
-        return [
-            'method'  => 'GET',
-            'path'    => 'domains/{parentID}/zones',
-            'params'  => [
-                'parentID'   => $this->params->stringPath(),
-            ],
-        ];
-    }
-
 }

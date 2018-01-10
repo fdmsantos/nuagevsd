@@ -13,8 +13,4 @@ class Zones extends AbstractBuilder
         parent::__construct($client,new ZoneApi(), Zone::class);
     }
 
-    public function byDomains(string $id): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->model($this->model)->enumerate($this->api->byDomains(), ['parentID' => $id]);
-    }
 }

@@ -12,10 +12,4 @@ class Domain extends AbstractBuilder
     {
         parent::__construct($client, new Domains(), DomainModel::class);
     }
-
-    public function byEnterprises(string $id): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->model($this->model)->enumerate($this->api->domainsByEnterprise(), ['parentID' => $id]);
-    }
-
 }

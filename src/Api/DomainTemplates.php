@@ -3,15 +3,19 @@
 namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
+use Vsd\Common\Traits\ParentRelationTrait;
 
 class DomainTemplates extends AbstractApi
 {
+    use ParentRelationTrait;
+    
+    private $resourceKey = 'domaintemplates';
 	
 	public function all(): array
     {
         return [
             'method'  => 'GET',
-            'path'    => 'enterprises/{parentID}/domaintemplates',
+            'path'    => 'domaintemplates',
             'params'  => [
                 'parentID' => $this->params->stringPath(),
                 'name'     => $this->params->stringFilter()

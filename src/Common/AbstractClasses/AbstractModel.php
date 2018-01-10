@@ -5,6 +5,7 @@ namespace Vsd\Common\AbstractClasses;
 use Vsd\Common\Resources\VsdIterator;
 use Vsd\Common\Resources\Params;
 use Vsd\Common\Traits\OperatorTrait;
+use Vsd\Common\Resources\ParentRelationship;
 
 abstract class AbstractModel
 {
@@ -19,6 +20,14 @@ abstract class AbstractModel
 		$this->client = $client;
         $this->api = $api;
 	}
+
+    public function __call($name, $arguments = null)
+    {
+        if (in_array($name, array_keys($this->relations))) {
+            return new ParentRelationship($this->relations[$name], $this->resourceKey, $this->ID, $this->client);
+        }
+        throw new \Exception('Relation not Valid', 1);
+    }
 
     public function update(): self
     {
@@ -48,11 +57,6 @@ abstract class AbstractModel
             }
         }
         return $this;
-    }
-
-    protected function builder($builder): \Vsd\Common\AbstractClasses\AbstractBuilder
-    {
-        return new $builder($this->client);
     }
     
 }

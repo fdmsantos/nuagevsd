@@ -12,11 +12,4 @@ class IngressAclTemplates extends AbstractBuilder
     {
         parent::__construct($client,new IngressApi(), IngressAclTemplate::class);
     }
-
-    public function listByParent(array $options): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->model($this->model)->enumerate($this->api->listByParent(), $options);
-    }
-
-
 }

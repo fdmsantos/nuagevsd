@@ -12,9 +12,4 @@ class Subnets extends AbstractBuilder
     {
         parent::__construct($client,new SubnetApi(), Subnet::class);
     }
-
-    public function byZones(string $id): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->model($this->model)->enumerate($this->api->byZones(), ['parentID' => $id]);
-    }
 }

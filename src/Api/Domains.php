@@ -3,9 +3,13 @@
 namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
+use Vsd\Common\Traits\ParentRelationTrait;
 
 class Domains extends AbstractApi
 {
+    use ParentRelationTrait;
+    
+    private $resourceKey = 'domains';
 
 	public function all(): array
     {
@@ -66,16 +70,4 @@ class Domains extends AbstractApi
             ],
         ];
     }
-
-    public function domainsByEnterprise(): array
-    {
-        return [
-            'method'  => 'GET',
-            'path'    => 'enterprises/{parentID}/domains',
-            'params'  => [
-                'parentID'    => $this->params->stringPath(),
-            ]
-        ];
-    }
-
 }

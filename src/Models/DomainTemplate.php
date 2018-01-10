@@ -4,18 +4,21 @@ namespace Vsd\Models;
 
 use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\DomainTemplates;
-use Vsd\Common\Traits\Relations\IngressAclTemplatesTrait;
-use Vsd\Common\Traits\Relations\EgressAclTemplatesTrait;
+use Vsd\Builders\EgressAclTemplates;
+use Vsd\Builders\IngressAclTemplates;
 
 class DomainTemplate extends AbstractModel
 {
-	use IngressAclTemplatesTrait, EgressAclTemplatesTrait;
 	
 	public $ID;
 	public $name;
 	public $description;
 	public $parentID;
-	private $resourceKey = 'domaintemplates';
+	protected $resourceKey = 'domaintemplates';
+	protected $relations = [
+		'egressAclTemplates'  => EgressAclTemplates::class,
+		'ingressAclTemplates' => IngressAclTemplates::class
+	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
 	{

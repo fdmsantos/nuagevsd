@@ -12,5 +12,4 @@ class DomainTemplate extends AbstractBuilder
     {
         parent::__construct($client, new DomainTemplates(), DomainTemplateModel::class);
     }
-
 }

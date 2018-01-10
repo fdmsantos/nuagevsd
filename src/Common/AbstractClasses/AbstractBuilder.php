@@ -47,6 +47,11 @@ abstract class AbstractBuilder
         return $this->model($this->model, $options)->update();
     }
 
+    public function listByParent(array $options): \Vsd\Common\Resources\VsdIterator
+    {
+        return $this->model($this->model)->enumerate($this->api->listByParent(), $options);
+    }
+
     protected function model(string $class, array $data = null) 
     {
         $model = new $class($this->client);
@@ -55,5 +60,4 @@ abstract class AbstractBuilder
         }
         return $model;
     }
-
 }

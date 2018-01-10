@@ -3,10 +3,14 @@
 namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
+use Vsd\Common\Traits\ParentRelationTrait;
 
 class Subnets extends AbstractApi
 {
-
+    use ParentRelationTrait;
+    
+    private $resourceKey = 'subnets';
+    
 	public function all(): array
     {
         return [
@@ -66,17 +70,6 @@ class Subnets extends AbstractApi
                 'address'     => $this->params->stringJson(),
                 'netmask'     => $this->params->stringJson(),
                 'gateway'     => $this->params->stringJson(),
-            ],
-        ];
-    }
-
-    public function byZones(): array
-    {
-        return [
-            'method'  => 'GET',
-            'path'    => 'zones/{parentID}/subnets',
-            'params'  => [
-                'parentID'   => $this->params->stringPath(),
             ],
         ];
     }

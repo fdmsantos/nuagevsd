@@ -3,9 +3,13 @@
 namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
+use Vsd\Common\Traits\ParentRelationTrait;
 
 class EgressAclTemplates extends AbstractApi
 {
+    use ParentRelationTrait;
+
+    private $resourceKey = 'egressacltemplates';
 
 	public function all(): array
     {
@@ -70,19 +74,6 @@ class EgressAclTemplates extends AbstractApi
                 'active' => $this->params->booleanJson(),
             ],
         ];
-    }
-
-    public function listByParent(): array
-    {
-        return [
-            'method'  => 'GET',
-            'path'    => '{parentType}/{parentID}/egressacltemplates',
-            'params'  => [
-                'parentType'        => $this->params->stringPath(),
-                'parentID'          => $this->params->stringPath(),
-            ]
-        ];
-    }
-    
+    }    
 
 }

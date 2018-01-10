@@ -13,10 +13,4 @@ class EgressAclTemplates extends AbstractBuilder
         parent::__construct($client,new EgressApi(), EgressAclTemplate::class);
     }
 
-    public function listByParent(array $options): \Vsd\Common\Resources\VsdIterator
-    {
-        return $this->model($this->model)->enumerate($this->api->listByParent(), $options);
-    }
-
-
 }

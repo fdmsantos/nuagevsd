@@ -3,9 +3,13 @@
 namespace Vsd\Api;
 
 use Vsd\Common\AbstractClasses\AbstractApi;
+use Vsd\Common\Traits\ParentRelationTrait;
 
 class IngressAclTemplates extends AbstractApi
 {
+    use ParentRelationTrait;
+    
+    private $resourceKey = 'ingressacltemplates';
 
 	public function all(): array
     {
@@ -71,18 +75,5 @@ class IngressAclTemplates extends AbstractApi
             ],
         ];
     }
-
-    public function listByParent(): array
-    {
-        return [
-            'method'  => 'GET',
-            'path'    => '{parentType}/{parentID}/ingressacltemplates',
-            'params'  => [
-                'parentType'        => $this->params->stringPath(),
-                'parentID'          => $this->params->stringPath(),
-            ]
-        ];
-    }
-    
 
 }
