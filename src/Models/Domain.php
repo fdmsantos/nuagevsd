@@ -9,6 +9,7 @@ use Vsd\Builders\IngressAclTemplates;
 use Vsd\Builders\Zones;
 use Vsd\Builders\VPorts;
 use Vsd\Builders\BridgeInterfaces;
+use Vsd\Builders\DhcpOptions;
 
 class Domain extends AbstractModel
 {
@@ -26,6 +27,7 @@ class Domain extends AbstractModel
 		'ingressAclTemplates' => IngressAclTemplates::class,
 		'vports'              => Vports::class,
 		'bridgeInterfaces'    => BridgeInterfaces::class,
+		'dhcpoptions'         => DhcpOptions::class,
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
