@@ -86,7 +86,7 @@ class Vsd
         return new Vlans($this->client);
     }
 
-    public function vports(): Vports
+    public function vports(): VPorts
     {
         return new VPorts($this->client);
     }

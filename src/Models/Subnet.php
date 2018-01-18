@@ -21,7 +21,7 @@ class Subnet extends AbstractModel
 	protected $relations = [
 		'addressRanges' => AddressRange::class,
 		'dhcpoptions'   => DhcpOptions::class,
-		'vports'        => Vports::class,
+		'vports'        => VPorts::class,
 	];
 	
 	public function __construct(\Vsd\Common\Resources\Connection $client)
