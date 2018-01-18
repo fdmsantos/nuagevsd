@@ -38,14 +38,14 @@ class VPorts extends AbstractApi
             'params'  => [
                 'parentType'   => $this->params->stringPath(),
                 'parentID'     => $this->params->stringPath(),
-                'name'         => $this->params->stringName(),
-                'active'       => $this->params->stringName(),
-                'addressSpoofing' => $this->params->stringName(),
-                'description'  => $this->params->stringName(),
-                'DPI'          => $this->params->stringName(),
-                'type'         => $this->params->stringName(),
-                'VLANID'       => $this->params->stringName(),
-                'zoneID'       => $this->params->stringName(),
+                'name'         => $this->params->stringJson(),
+                'active'       => $this->params->stringJson(),
+                'addressSpoofing' => $this->params->stringJson(),
+                'description'  => $this->params->stringJson(),
+                'DPI'          => $this->params->stringJson(),
+                'type'         => $this->params->stringJson(),
+                'VLANID'       => $this->params->stringJson(),
+                'zoneID'       => $this->params->stringJson(),
             ]
         ];
     }
@@ -71,14 +71,14 @@ class VPorts extends AbstractApi
             'path'    => $this->resourceKey.'/{ID}',
             'params'  => [
                 'ID'           => $this->params->stringPath(),
-                'name'         => $this->params->stringName(),
-                'active'       => $this->params->stringName(),
-                'addressSpoofing' => $this->params->stringName(),
-                'description'  => $this->params->stringName(),
-                'DPI'          => $this->params->stringName(),
-                'type'         => $this->params->stringName(),
-                'VLANID'       => $this->params->stringName(),
-                'zoneID'       => $this->params->stringName(),
+                'name'         => $this->params->stringJson(),
+                'active'       => $this->params->stringJson(),
+                'addressSpoofing' => $this->params->stringJson(),
+                'description'  => $this->params->stringJson(),
+                'DPI'          => $this->params->stringJson(),
+                'type'         => $this->params->stringJson(),
+                'VLANID'       => $this->params->stringJson(),
+                'zoneID'       => $this->params->stringJson(),
             ],
         ];
     }
