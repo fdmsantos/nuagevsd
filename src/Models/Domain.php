@@ -10,6 +10,7 @@ use Vsd\Builders\Zones;
 use Vsd\Builders\VPorts;
 use Vsd\Builders\BridgeInterfaces;
 use Vsd\Builders\DhcpOptions;
+use Vsd\Builders\Subnets;
 
 class Domain extends AbstractModel
 {
@@ -28,6 +29,7 @@ class Domain extends AbstractModel
 		'vports'              => Vports::class,
 		'bridgeInterfaces'    => BridgeInterfaces::class,
 		'dhcpoptions'         => DhcpOptions::class,
+		'subnets'             => Subnets::class,
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
