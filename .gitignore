@@ -2,3 +2,4 @@ composer.phar
 /vendor/
 env_test.sh
 test.php
+.idea/
