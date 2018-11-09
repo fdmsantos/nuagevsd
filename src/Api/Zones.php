@@ -39,6 +39,7 @@ class Zones extends AbstractApi
                 'parentID'    => $this->params->stringPath(),
                 'name'        => $this->params->stringJson(),
                 'description' => $this->params->stringJson(),
+                'publicZone'  => $this->params->booleanJson()
             ]
         ];
     }
