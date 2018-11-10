@@ -42,6 +42,7 @@ class Subnets extends AbstractApi
                 'address'     => $this->params->stringJson(),
                 'netmask'     => $this->params->stringJson(),
                 'gateway'     => $this->params->stringJson(),
+                'associatedSharedNetworkResourceID' => $this->params->stringJson()
             ]
         ];
     }
