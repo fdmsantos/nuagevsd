@@ -17,6 +17,7 @@ class Subnet extends AbstractModel
 	public $address;
 	public $netmask;
 	public $gateway;
+	public $associatedSharedNetworkResourceID;
 	protected $resourceKey = 'subnets';
 	protected $relations = [
 		'addressRanges' => AddressRange::class,
