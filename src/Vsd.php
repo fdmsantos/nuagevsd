@@ -16,7 +16,7 @@ use Vsd\Builders\NsPorts;
 use Vsd\Builders\Vlans;
 use Vsd\Builders\VPorts;
 use Vsd\Builders\BridgeInterfaces;
-use Vsd\Builders\SharedNetworkResource;
+use Vsd\Builders\SharedNetworkResources;
 
 class Vsd
 {
@@ -97,9 +97,9 @@ class Vsd
         return new BridgeInterfaces($this->client);
     }
 
-    public function sharedNetworkResource(): SharedNetworkResource
+    public function sharedNetworkResources(): SharedNetworkResources
     {
-        return new SharedNetworkResource($this->client);
+        return new SharedNetworkResources($this->client);
     }
     
 }

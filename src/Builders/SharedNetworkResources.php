@@ -6,7 +6,7 @@ use Vsd\Common\AbstractClasses\AbstractBuilder;
 use Vsd\Api\SharedNetworkResource as SharedNetworkResourceApi;
 use Vsd\Models\SharedNetworkResource as SharedNetworkResourceModel;
 
-class SharedNetworkResource extends AbstractBuilder
+class SharedNetworkResources extends AbstractBuilder
 {
     public function __construct($client)
     {
