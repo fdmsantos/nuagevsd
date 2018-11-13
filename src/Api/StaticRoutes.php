@@ -35,6 +35,8 @@ class StaticRoutes extends AbstractApi
             'method'  => 'POST',
             'path'    => '{parentType}/{parentID}/'.$this->resourceKey,
             'params'  => [
+                'parentType'         => $this->params->stringPath(),
+                'parentID'           => $this->params->stringPath(),
                 'address'            => $this->params->stringPath(),
                 'associatedSubnetID' => $this->params->stringPath(),
                 'BFDEnabled'         => $this->params->booleanJson(),
