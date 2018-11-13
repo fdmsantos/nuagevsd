@@ -37,8 +37,8 @@ class StaticRoutes extends AbstractApi
             'params'  => [
                 'parentType'         => $this->params->stringPath(),
                 'parentID'           => $this->params->stringPath(),
-                'address'            => $this->params->stringPath(),
-                'associatedSubnetID' => $this->params->stringPath(),
+                'address'            => $this->params->stringJson(),
+                'associatedSubnetID' => $this->params->stringJson(),
                 'BFDEnabled'         => $this->params->booleanJson(),
                 'IPType'             => $this->params->stringJson(),
                 'IPv6Address'        => $this->params->stringJson(),
@@ -46,7 +46,8 @@ class StaticRoutes extends AbstractApi
                 'nextHopIp'          => $this->params->stringJson(),
                 'routeDistinguisher' => $this->params->stringJson(),
                 'type'               => $this->params->stringJson(),
-            ]
+            ],
+            'responseChoice' => 1
         ];
     }
 
