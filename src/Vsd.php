@@ -17,6 +17,7 @@ use Vsd\Builders\Vlans;
 use Vsd\Builders\VPorts;
 use Vsd\Builders\BridgeInterfaces;
 use Vsd\Builders\SharedNetworkResources;
+use Vsd\Builders\StaticRoutes;
 
 class Vsd
 {
@@ -100,6 +101,11 @@ class Vsd
     public function sharedNetworkResources(): SharedNetworkResources
     {
         return new SharedNetworkResources($this->client);
+    }
+
+    public function staticRoutes(): StaticRoutes
+    {
+        return new StaticRoutes($this->client);
     }
     
 }

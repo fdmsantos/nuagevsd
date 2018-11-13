@@ -11,6 +11,7 @@ use Vsd\Builders\VPorts;
 use Vsd\Builders\BridgeInterfaces;
 use Vsd\Builders\DhcpOptions;
 use Vsd\Builders\Subnets;
+use Vsd\Builders\StaticRoutes;
 
 class Domain extends AbstractModel
 {
@@ -30,6 +31,7 @@ class Domain extends AbstractModel
 		'bridgeInterfaces'    => BridgeInterfaces::class,
 		'dhcpoptions'         => DhcpOptions::class,
 		'subnets'             => Subnets::class,
+        'staticRoutes'        => StaticRoutes::class
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
