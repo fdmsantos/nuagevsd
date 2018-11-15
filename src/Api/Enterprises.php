@@ -36,7 +36,8 @@ class Enterprises extends AbstractApi
             'path'    => 'enterprises',
             'params'  => [
                 'name'        => $this->params->stringJson(),
-                'description' => $this->params->stringJson()
+                'description' => $this->params->stringJson(),
+                'enterpriseProfileID' => $this->params->stringJson()
             ]
         ];
     }

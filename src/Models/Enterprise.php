@@ -15,6 +15,7 @@ class Enterprise extends AbstractModel
 	public $description;
 	public $customerID;
 	public $owner;
+	public $enterpriseProfileID;
 	protected $resourceKey = 'enterprises';
 	protected $relations = [
 		'domains'          => Domain::class,
