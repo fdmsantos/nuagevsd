@@ -18,6 +18,7 @@ use Vsd\Builders\VPorts;
 use Vsd\Builders\BridgeInterfaces;
 use Vsd\Builders\SharedNetworkResources;
 use Vsd\Builders\StaticRoutes;
+use Vsd\Builders\Qos;
 
 class Vsd
 {
@@ -106,6 +107,11 @@ class Vsd
     public function staticRoutes(): StaticRoutes
     {
         return new StaticRoutes($this->client);
+    }
+
+    public function qos(): Qos
+    {
+        return new Qos($this->client);
     }
     
 }
