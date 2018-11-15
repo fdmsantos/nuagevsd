@@ -6,6 +6,7 @@ use Vsd\Common\AbstractClasses\AbstractModel;
 use Vsd\Api\DomainTemplates;
 use Vsd\Builders\EgressAclTemplates;
 use Vsd\Builders\IngressAclTemplates;
+use Vsd\Builders\Qos;
 
 class DomainTemplate extends AbstractModel
 {
