@@ -45,6 +45,9 @@ class EgressAclTemplates extends AbstractApi
                 'defaultAllowIP'    => $this->params->booleanJson(),
                 'defaultAllowNonIP' => $this->params->booleanJson(),
                 'active'            => $this->params->booleanJson(),
+                'allowAddressSpoof' => $this->params->booleanJson(),
+                'priorityType'      => $this->params->stringJson(),
+                'description'       => $this->params->stringJson(),
             ]
         ];
     }
@@ -67,11 +70,14 @@ class EgressAclTemplates extends AbstractApi
             'method'  => 'PUT',
             'path'    => 'egressacltemplates/{ID}',
             'params'  => [
-                'ID'   => $this->params->stringPath(),
-                'name' => $this->params->stringJson(),
-                'defaultAllowIP' => $this->params->booleanJson(),
+                'ID'                => $this->params->stringPath(),
+                'name'              => $this->params->stringJson(),
+                'defaultAllowIP'    => $this->params->booleanJson(),
                 'defaultAllowNonIP' => $this->params->booleanJson(),
-                'active' => $this->params->booleanJson(),
+                'active'            => $this->params->booleanJson(),
+                'allowAddressSpoof' => $this->params->booleanJson(),
+                'priorityType'      => $this->params->stringJson(),
+                'description'       => $this->params->stringJson(),
             ],
         ];
     }    

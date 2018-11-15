@@ -14,6 +14,9 @@ class EgressAclTemplate extends AbstractModel
 	public $defaultAllowIP;
 	public $defaultAllowNonIP;
 	public $active;
+    public $allowAddressSpoof;
+    public $priorityType;
+    public $description;
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
 	{
