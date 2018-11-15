@@ -17,7 +17,8 @@ class DomainTemplate extends AbstractModel
 	protected $resourceKey = 'domaintemplates';
 	protected $relations = [
 		'egressAclTemplates'  => EgressAclTemplates::class,
-		'ingressAclTemplates' => IngressAclTemplates::class
+		'ingressAclTemplates' => IngressAclTemplates::class,
+        'qos'                 => Qos::class
 	];
 
 	public function __construct(\Vsd\Common\Resources\Connection $client)
