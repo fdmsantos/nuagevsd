@@ -15,6 +15,11 @@ class Qos extends AbstractModel
     public $committedInformationRate;
     public $active;
     public $rateLimitingActive;
+    public $peak;
+    public $burst;
+    public $committedBurstSize;
+    public $BUMPeakInformationRate;
+    public $BUMPeakBurstSize;
 
     public function __construct(\Vsd\Common\Resources\Connection $client)
     {

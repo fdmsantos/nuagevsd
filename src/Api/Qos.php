@@ -46,6 +46,11 @@ class Qos extends AbstractApi
                 'description'              => $this->params->stringJson(),
                 'active'                   => $this->params->booleanJson(),
                 'rateLimitingActive'       => $this->params->booleanJson(),
+                'peak'                     => $this->params->stringJson(),
+                'burst'                    => $this->params->stringJson(),
+                'committedBurstSize'       => $this->params->stringJson(),
+                'BUMPeakInformationRate'   => $this->params->stringJson(),
+                'BUMPeakBurstSize'         => $this->params->stringJson(),
             ]
         ];
     }
@@ -74,6 +79,11 @@ class Qos extends AbstractApi
                 'description'              => $this->params->stringJson(),
                 'active'                   => $this->params->booleanJson(),
                 'rateLimitingActive'       => $this->params->booleanJson(),
+                'peak'                     => $this->params->stringJson(),
+                'burst'                    => $this->params->stringJson(),
+                'committedBurstSize'       => $this->params->stringJson(),
+                'BUMPeakInformationRate'   => $this->params->stringJson(),
+                'BUMPeakBurstSize'         => $this->params->stringJson(),
             ],
         ];
     }
