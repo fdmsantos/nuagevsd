@@ -41,7 +41,8 @@ class Domains extends AbstractApi
             'params'  => [
                 'parentID'    => $this->params->stringPath(),
                 'name'        => $this->params->stringJson(),
-                'templateID'  => $this->params->stringJson()
+                'templateID'  => $this->params->stringJson(),
+                'description' => $this->params->stringJson(),
             ]
         ];
     }
@@ -64,8 +65,8 @@ class Domains extends AbstractApi
             'method'  => 'PUT',
             'path'    => 'domains/{ID}',
             'params'  => [
-                'ID'   => $this->params->stringPath(),
-                'name' => $this->params->stringJson(),
+                'ID'          => $this->params->stringPath(),
+                'name'        => $this->params->stringJson(),
                 'description' => $this->params->stringJson(),
             ],
         ];

@@ -40,8 +40,9 @@ class DomainTemplates extends AbstractApi
             'method'  => 'POST',
             'path'    => 'enterprises/{parentID}/domaintemplates',
             'params'  => [
-                'parentID' => $this->params->stringPath(),
-                'name'     => $this->params->stringJson()
+                'parentID'    => $this->params->stringPath(),
+                'name'        => $this->params->stringJson(),
+                'description' => $this->params->stringJson(),
             ]
         ];
     }
@@ -64,8 +65,8 @@ class DomainTemplates extends AbstractApi
             'method'  => 'PUT',
             'path'    => 'domaintemplates/{ID}',
             'params'  => [
-                'ID'   => $this->params->stringPath(),
-                'name' => $this->params->stringJson(),
+                'ID'          => $this->params->stringPath(),
+                'name'        => $this->params->stringJson(),
                 'description' => $this->params->stringJson(),
             ],
         ];

@@ -23,6 +23,7 @@ class Domain extends AbstractModel
 	public $underlayEnabled;
 	public $PATEnabled;
 	public $encryption;
+	public $description;
 	protected $resourceKey = 'domains';
 	protected $relations = [
 		'zones'               => Zones::class,
