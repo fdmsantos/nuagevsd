@@ -20,6 +20,7 @@ class Qos extends AbstractModel
     public $committedBurstSize;
     public $BUMPeakInformationRate;
     public $BUMPeakBurstSize;
+    public $BUMRateLimitingActive;
 
     public function __construct(\Vsd\Common\Resources\Connection $client)
     {

@@ -51,6 +51,7 @@ class Qos extends AbstractApi
                 'committedBurstSize'       => $this->params->stringJson(),
                 'BUMPeakInformationRate'   => $this->params->stringJson(),
                 'BUMPeakBurstSize'         => $this->params->stringJson(),
+                'BUMRateLimitingActive'    => $this->params->booleanJson(),
             ]
         ];
     }
@@ -84,6 +85,7 @@ class Qos extends AbstractApi
                 'committedBurstSize'       => $this->params->stringJson(),
                 'BUMPeakInformationRate'   => $this->params->stringJson(),
                 'BUMPeakBurstSize'         => $this->params->stringJson(),
+                'BUMRateLimitingActive'    => $this->params->booleanJson(),
             ],
         ];
     }
