@@ -25,6 +25,7 @@ Class Connection
                 'X-Nuage-Organization' => $options['organization'],
             ],
             'verify' => isset($options['verify']) ? $options['verify'] : true,
+            'proxy'  => isset($options['proxy']) ? $options['proxy'] : '',
         ]);
         $this->auth($options['user'],$options['password']);
 	}
