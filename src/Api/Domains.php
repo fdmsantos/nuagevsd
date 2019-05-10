@@ -39,10 +39,14 @@ class Domains extends AbstractApi
             'method'  => 'POST',
             'path'    => 'enterprises/{parentID}/domains',
             'params'  => [
-                'parentID'    => $this->params->stringPath(),
-                'name'        => $this->params->stringJson(),
-                'templateID'  => $this->params->stringJson(),
-                'description' => $this->params->stringJson(),
+                'parentID'        => $this->params->stringPath(),
+                'name'            => $this->params->stringJson(),
+                'templateID'      => $this->params->stringJson(),
+                'description'     => $this->params->stringJson(),
+                'DHCPBehavior'    => $this->params->stringJson(),
+                'underlayEnabled' => $this->params->stringJson(),
+                'PATEnabled'      => $this->params->stringJson(),
+                'encryption'      => $this->params->stringJson(),
             ]
         ];
     }

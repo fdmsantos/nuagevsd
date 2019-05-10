@@ -24,6 +24,7 @@ class Domain extends AbstractModel
 	public $PATEnabled;
 	public $encryption;
 	public $description;
+	public $DHCPBehavior;
 	protected $resourceKey = 'domains';
 	protected $relations = [
 		'zones'               => Zones::class,
